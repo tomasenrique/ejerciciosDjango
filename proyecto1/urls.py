@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from proyecto1.views import saludo, despedida  # Aqui se importa el metodo creado
+from proyecto1.views import saludo, despedida, dame_fecha, calcula_edad1, calcula_edad2  # Aqui se importa el metodo creado
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('saludo/', saludo),  # Aqui se le pasa el url(saludo) para llamarlo por vista 'saludo' en la web
-    path('despedida', despedida),
+    path('despedida/', despedida),  # El primer parametro el nombre de la url y el segundo es el nombre de la funcion
+    path('dame_fecha/', dame_fecha),
+    path('calcula_edad1/<int:anyo>', calcula_edad1),  # Aqui se pasa un valor en el enlace 'calcula_edad/<int:anyo>'
+    path('calcula_edad2/<int:edad>/<int:anyo>', calcula_edad2),  # Aqui se pasa 2 parametros
 ]
