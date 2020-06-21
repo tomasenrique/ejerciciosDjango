@@ -7,6 +7,8 @@ Los metodos aqui son basicos y no tiene parametro de entreda.
 from django.http import HttpResponse
 import datetime
 
+from django.template import Template, Context  # para poder usar las plantilla y su contexto
+
 # Este es un ejm de como pasar html
 #  Este sera su enlaca en la web ==>> http://localhost:8000/saludo/
 # def saludo(request):  # primera vista
@@ -64,6 +66,7 @@ def calcula_edad1(request, anyo):
                       </html>""" % (anyo, edad_futura)
     return HttpResponse(documento_fecha)
 
+
 # Aqui se pasan dos parametros para que los reciba la url del path
 def calcula_edad2(request, edad, anyo):
     edad_actual = edad
@@ -76,3 +79,22 @@ def calcula_edad2(request, edad, anyo):
                           </body>
                       </html>""" % (anyo, edad_futura)
     return HttpResponse(documento_fecha)
+
+
+# ======================================================================================================================
+# ======================================================================================================================
+# Aqui se cargara una plantilla al metodo que actua como una vista
+
+
+def saludo2(request):
+    # doc_externo = open("C:\D\Lenguajes\Django\proyecto1\proyecto1\plantillas\miplantilla.html")  # Se carga la plantilla
+    doc_externo = open("C:/D/Lenguajes/Django/proyecto1/proyecto1/plantillas/miplantilla.html")  # Se carga la plantilla
+
+    plt = Template(doc_externo.read())  # Se crea un objeto de tipo template para cargar la plantilla
+    doc_externo.close()  # Se cierra el documento
+
+    ctx = Context()  # Se crea el contexto para la plantilla
+
+    documento_p = plt.render(ctx)  # se crea el renderizado de la pagina y se le pasa el contexto
+
+    return HttpResponse(documento_p)
