@@ -8,7 +8,7 @@
      <h1 style="color: red">Trabajando con nuestra primera plantilla</h1>
 
     {# Aqui se obtiene el dato de la variable 'nombre' que esta en el diccionario en la funcion de la vista  #}
-    <p>Mi nombre es: {{ nombre_persona }}</p>
+    <p>Mi nombre es: {{ nombre_persona.upper }}</p> {# Se aplica mayusculas #}
     <p>Mi apellido es: {{ apellido }}</p>
     <p>Fecha: {{ fecha }}</p>
 
@@ -20,6 +20,50 @@
     <p>Hour: {{ fecha.hour }}</p>
     <p>Minute: {{ fecha.minute }}</p>
     <p>Second: {{ fecha.second }}</p>
+
+     <p>================</p>
+     {# Aqui se usa una lista de forma simple #}
+     <p>Temas: {{ temas }}</p> {# Esto es una lista que se mostrara en la vista web  #}
+     <p>Temas: {{ temas.1 }}</p> {# aqui solo un dato  #}
+
+     <p>================</p>
+
+    {# Aqui se usara un forEach para recorrer la lista #}
+    <P><strong>Temas del curso:</strong></P>
+    <p>
+        {% for elTema in temas %}
+            {{ elTema }}
+
+        {% endfor %}
+    </p>
+
+     <p>================</p>
+
+    {# Aqui se usara un forEach y se agrega orden de listas para la vista#}
+    <P><strong>Temas del curso:</strong></P>
+    <p>
+        {% for elTema in temas %}
+            <li>{{ elTema }}</li>
+
+        {% endfor %}
+    </p>
+
+    <p>================</p>
+
+   {# Aqui se usara con un condicional  para verificar si la lista esta vacia o no#}
+    <P><strong>Temas del curso 2:</strong></P>
+    <p>
+        <ul>
+            {% if temas2 %}
+                {% for elTema in temas2 %}
+                    <li>{{ elTema }}</li>
+                {% endfor %}
+            {% else %}
+                <p>No hay elementos que mostrar</p>
+            {% endif %}
+        </ul>
+
+    </p>
 
 
 </body>
