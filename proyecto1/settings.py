@@ -54,7 +54,7 @@ ROOT_URLCONF = 'proyecto1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["C:/D/Lenguajes/Django/proyecto1/proyecto1/templates/"],  # aqui se esta incluyendo una carpeta
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

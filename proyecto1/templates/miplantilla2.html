@@ -7,6 +7,18 @@
 <body>
      <h1 style="color: red">Trabajando con nuestra primera plantilla</h1>
 
+     {# Esta es un condicional if y else#}
+     {% if nombre_persona == 'gggg' %} {# nombre_persona = tomas #}
+        <p>El curso lo imparte: tomas</p>
+     {% else %}
+         <p> No hay progesor para este curso</p>
+     {% endif %}
+
+    {% comment %}
+        Esto es un comentario de varias lineas
+    {% endcomment %}
+
+
     {# Aqui se obtiene el dato de la variable 'nombre' que esta en el diccionario en la funcion de la vista  #}
     <p>Mi nombre es: {{ nombre_persona.upper }}</p> {# Se aplica mayusculas #}
     <p>Mi apellido es: {{ apellido }}</p>
@@ -65,6 +77,32 @@
 
     </p>
 
+     <p>===============================================================================================</p>
+    {# Usando filtros    #}
+
+    {# Filtro simple    #}
+    <p>Mi nombre es: {{ nombre_persona | upper }}</p> {# el simbolo '|' es un filtro #}
+    <p>Mi apellido es: {{ apellido | lower }}</p>
+
+     <p>================</p>
+
+    {# Filtro simple en for #}
+    <p>
+        {% for elTema in temas %}
+            <li>{{ elTema | first }}</li> {# Muestra solo la primera letra de cada palabra #}
+        {% endfor %}
+    </p>
+
+     <p>================</p>
+    {# Filtro Encadenado #}
+    <p>
+        {% for elTema in temas %}
+            <li>{{ elTema | first | lower }}</li>
+
+        {% endfor %}
+    </p>
+
+    <p>===============================================================================================</p>
 
 </body>
 </html>
