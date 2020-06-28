@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path
 
 # Aqui se importa el metodo creado
-from proyecto1.views import saludo, saludo2, despedida, dame_fecha, calcula_edad1, calcula_edad2, saludo3, saludo4, saludo5, saludo6, saludo7
+from proyecto1.views import saludo, saludo2, despedida, dame_fecha, calcula_edad1, calcula_edad2, saludo3, saludo4, saludo5, saludo6, saludo7, plantilla1, plantilla2
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,6 +32,8 @@ urlpatterns = [
     path('saludo4/', saludo4),   # Para pasar datos usando una clase creada
     path('saludo5/', saludo5),   # Para pasar una lista con datos
     path('saludo6/', saludo6),   # Para mostrar datos en los templates usando el archivo setting.py
-    path('saludo7/', saludo7)   # Usando 'shortcuts' con el metodo simpleificado render()
+    path('saludo7/', saludo7),   # Usando 'shortcuts' con el metodo simpleificado render()
+    path('plantilla1/', plantilla1),   # Para la herencia de plantillas, de base.html a plantilla1.html
+    path('plantilla2/', plantilla2)   # Para la herencia de plantillas, de base.html a plantilla2.html
 
 ]

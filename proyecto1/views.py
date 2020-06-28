@@ -219,7 +219,7 @@ def saludo6(request):
 
 # ======================================================================================================================
 # ======================================================================================================================
-# PLANTILLAS 5
+# PLANTILLAS 5 - PAQUETE SHORTCUTS Y COMO INCRUSTAR PLANTILLAS
 
 """ USANDO PAQUETE SHORTCUTS
     Uso del paquete 'shortcuts' con el metodo render() para simpleificar los trabajos
@@ -258,3 +258,20 @@ def saludo7(request):
 
 # ======================================================================================================================
 # ======================================================================================================================
+# PLANTILLAS 6 - HERENCIA DE PLANTILLAS
+
+""" Ver los archivos:
+    base.html, plantilla1.html, plantilla2.html
+"""
+
+
+def plantilla1(request):
+    fecha_actual = datetime.datetime.now()  # Obtiene la fecha del sistema
+    diccionario2 = {"dame_fecha": fecha_actual}
+    return render(request, "plantilla1.html", diccionario2)
+
+
+def plantilla2(request):
+    fecha_actual = datetime.datetime.now()  # Obtiene la fecha del sistema
+    diccionario2 = {"dame_fecha": fecha_actual}
+    return render(request, "plantilla2.html", diccionario2)

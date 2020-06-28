@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {# Con esto lo que se hace esindicar que en cada plantilla que herede de la plantilla base(padre), tenga un titulo diferente #}
+        {% block title %}
+             {# Contenido de titulo que varia por pagina      #}
+        {% endblock %}
+    </title>
+</head>
+<body>
+    {# ESTA SERA LA PLANTILLA PADRE   #}
+     {% include "superior/barra.html" %}
+
+    <h1 style="background-color: yellow; color: green; text-align: center">MI PRIMERA PAGINA - TOMAS ESTRADA</h1>
+
+
+    <H3>PRUEBAS DE HERENCIA DE PLANTILLAS</H3>
+
+    {# Etiqueta para el contenido que cambiara de cada pantilla   #}
+    {% block content %}
+        {# Todo lo que este entre estas 2 etiquetas cambiara       #}
+    {% endblock %}
+
+    <p style="background-color: yellow; color: green; text-align: right">Gracias por todo el aprendizaje</p>
+
+</body>
+</html>
